@@ -1,0 +1,215 @@
+package FichaPrática_07;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+import static FichaPrática_07.biblioteca.*;
+
+public class Ex_09 {
+    public static void main(String[] args) throws FileNotFoundException {
+        dividirArray("files/exercicio_09.csv", ",");
+        Scanner input = new Scanner(System.in);
+
+        int option = 1;
+        while (option == 1) {
+            System.out.println("***Escolha uma opção: ***");
+            System.out.println("0. Sair");
+            System.out.println("2. Pesquisar por género");
+            System.out.println("3. Pesquisar por artista");
+            System.out.println("4. Menor música");
+            System.out.println("5. Maior música");
+            System.out.println("6. Música maior que...");
+            System.out.println("7. Quantas músicas tens na playlist");
+            option = input.nextInt();
+            String op = "";
+            switch (option) {
+                case 2:
+                    System.out.println("***Escolha uma opção: ***");
+                    System.out.println("ROCK");
+                    System.out.println("POP");
+                    System.out.println("ALTERNATIVE ROCK ");
+                    System.out.println("PSYCHADELIC ROCK");
+                    System.out.println("FOLK");
+                    System.out.println("HEAVY METAL");
+                    System.out.println("GRUNGE");
+                    op = input.next();
+                    op = op.toUpperCase();
+                    // System.out.println(op);
+                    // ir fazer uma fucking função com parametro op
+                    // ler o ficheiro, dividir em array, op == a array na posição 2, se sim sout
+                    searchGen("files/exercicio_09.csv", op);
+
+                    option = 1;
+                    break;
+
+                case 3:
+                    System.out.println("***Escolha um artista: ***");
+                    op = input.next();
+                    op = op.toUpperCase();
+                    searchArt("files/exercicio_09.csv", op);
+
+                    option = 1;
+                    break;
+
+                case 4: Smaller("files/exercicio_09.csv");
+
+                    option = 1;
+                    break;
+
+                case 5: Bigger("files/exercicio_09.csv");
+
+                    option = 1;
+                    break;
+
+                case 6:
+                    System.out.println("Música maiores do que...");
+                    int time = input.nextInt();
+                    BiggerThan("files/exercicio_09.csv", time);
+
+                    option = 1;
+                    break;
+
+                case 7:
+                    howMany("files/exercicio_09.csv");
+
+                    option = 1;
+                    break;
+
+                default:
+                    System.out.println("** Até breve **");
+            }
+        }
+    }
+}
+
+
+
+
+
+_________________________________________________FUNÇOES INVOCADAS_________________________________________________________________________
+   
+public static void searchGen(String path, String op) throws FileNotFoundException {
+        File file = new File(path);
+        Scanner sc = new Scanner(file);
+
+        String linha = sc.nextLine();
+
+        while (sc.hasNextLine()){
+            linha = sc.nextLine();
+            String[] linhaSeparada = linha.split(",");
+
+            if (linhaSeparada[2].toUpperCase().equals(op)  ) {
+                System.out.println(linhaSeparada[0] + " - " + linhaSeparada[1]);
+            }
+        }
+    }
+
+
+
+ public static void searchArt(String path, String artist) throws FileNotFoundException {
+        File file = new File(path);
+        Scanner sc = new Scanner(file);
+
+        String linha = sc.nextLine();
+
+        while (sc.hasNextLine()){
+            linha = sc.nextLine();
+            String[] linhaSeparada = linha.split(",");
+
+            if (linhaSeparada[1].toUpperCase().equals(artist)  ) {
+                System.out.println(linhaSeparada[0] + " - " + linhaSeparada[1]);
+            }
+        }
+    }
+
+
+
+
+    public static void Smaller(String path) throws FileNotFoundException {
+        File file = new File(path);
+        Scanner sc = new Scanner(file);
+
+        String linha = sc.nextLine();
+        int smaller = 999999;
+        String music = "";
+
+        while (sc.hasNextLine()){
+            linha = sc.nextLine();
+            String[] linhaSeparada = linha.split(",");
+            String[] time = linhaSeparada[3].split(":");
+            int seconds = (Integer.parseInt(time[0]) * 60) + Integer.parseInt(time[1]);
+
+            if (smaller > seconds) {
+                smaller = seconds;
+                music = "A música mais curta é " + linhaSeparada[0] + " - " + linhaSeparada[1];
+            }
+
+                  } System.out.println(music);
+    }
+
+
+
+
+
+    public static void Bigger(String path) throws FileNotFoundException {
+        File file = new File(path);
+        Scanner sc = new Scanner(file);
+
+        String linha = sc.nextLine();
+        int bigger = 0;
+        String music = "";
+
+        while (sc.hasNextLine()){
+            linha = sc.nextLine();
+            String[] linhaSeparada = linha.split(",");
+            String[] time = linhaSeparada[3].split(":");
+            int seconds = (Integer.parseInt(time[0]) * 60) + Integer.parseInt(time[1]);
+
+            if (bigger < seconds) {
+                bigger = seconds;
+                music = "A música mais longa é " + linhaSeparada[0] + " - " + linhaSeparada[1];
+            }
+
+        } System.out.println(music);
+    }
+
+
+
+    public static void BiggerThan(String path, int limit) throws FileNotFoundException {
+        File file = new File(path);
+        Scanner sc = new Scanner(file);
+
+        String linha = sc.nextLine();
+        int bigger = 0;
+        String music = "";
+
+        while (sc.hasNextLine()){
+            linha = sc.nextLine();
+            String[] linhaSeparada = linha.split(",");
+            String[] time = linhaSeparada[3].split(":");
+            int seconds = (Integer.parseInt(time[0]) * 60) + Integer.parseInt(time[1]);
+
+            if (limit < seconds) {
+                System.out.println(linhaSeparada[0] + " - " + linhaSeparada[1]);
+            }
+        }
+    }
+
+
+    public static void howMany(String path) throws FileNotFoundException {
+        File file = new File(path);
+        Scanner sc = new Scanner(file);
+
+        String linha = sc.nextLine();
+        int count = 0;
+
+        while (sc.hasNextLine()){
+            linha = sc.nextLine();
+            count++;
+        }
+        System.out.println("Tem " + count + " músicas na sua playlist");
+    }
+
+}
+

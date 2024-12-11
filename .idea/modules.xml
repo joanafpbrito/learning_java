@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/FichasJavaPE/FichasJavaPE.iml" filepath="$PROJECT_DIR$/FichasJavaPE/FichasJavaPE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Fichas_Extra/Fichas_Extra.iml" filepath="$PROJECT_DIR$/Fichas_Extra/Fichas_Extra.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Fichas_Java/Fichas_Java.iml" filepath="$PROJECT_DIR$/Fichas_Java/Fichas_Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaPOOFicha002/JavaPOOFicha002.iml" filepath="$PROJECT_DIR$/JavaPOOFicha002/JavaPOOFicha002.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaPOOFicha01/JavaPOOFicha01.iml" filepath="$PROJECT_DIR$/JavaPOOFicha01/JavaPOOFicha01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/T_Cine/T_Cine.iml" filepath="$PROJECT_DIR$/T_Cine/T_Cine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/algoritmia-programação.iml" filepath="$PROJECT_DIR$/.idea/algoritmia-programação.iml" />
+      <module fileurl="file://$PROJECT_DIR$/noveOutubro/noveOutubro.iml" filepath="$PROJECT_DIR$/noveOutubro/noveOutubro.iml" />
+    </modules>
+  </component>
+</project>

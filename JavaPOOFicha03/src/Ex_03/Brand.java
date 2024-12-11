@@ -1,0 +1,6 @@
+package Ex_03;
+
+public enum Brand {
+    BENTZ,DEVLIN,MAZURY,QUICKSILVER,SAVER,SMARTLINER,VORAZ,WOOLRIDGE
+}
+

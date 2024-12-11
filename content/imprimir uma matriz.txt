@@ -1,0 +1,20 @@
+ // imprimir uma matriz
+
+
+        System.out.println("--------------------------");
+        for (int l = 0; l < armario.length; l++) {
+            for (int c = 0; c < armario.length; c++) {
+                System.out.print(armario[l][c] + " \t | \t");
+            }
+            System.out.println();
+        }
+        System.out.println("--------------------------");
+
+  // imprimir um array
+
+
+        System.out.println(" ________________________________________ ");
+
+        for (int l = 0; l < armario.length; l++) {
+            System.out.print(armario[l] + " \t | \t " );
+        }
